@@ -21,7 +21,7 @@ class Employee(models.Model):
     ci=models.CharField(max_length=60)
     name=models.CharField(max_length=60)
     last_name=models.CharField(max_length=60)
-    phone= models.FloatField()
+    phone= models.CharField(max_length=20)
     points= models.IntegerField()
     adress=models.CharField(max_length=200)
     gender= models.ForeignKey(Genero, on_delete=models.CASCADE, default="Hombre")

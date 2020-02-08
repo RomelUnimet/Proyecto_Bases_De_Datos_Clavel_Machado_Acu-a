@@ -18,5 +18,3 @@ admin.site.register(Job,JobAdmin)
 admin.site.register(Employee,EmployeeAdmin)
 admin.site.register(Genero,GeneroAdmin)
 
-
-# Register your models here.
