@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'entrega_1.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'elbo_degon',
+        'NAME': 'elbo_degon2',
         'USER':'root',
         'PASSWORD': 'paprika011209',
         'HOST':'localhost',

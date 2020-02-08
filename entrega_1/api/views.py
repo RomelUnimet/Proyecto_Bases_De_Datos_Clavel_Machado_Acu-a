@@ -11,8 +11,6 @@ from rest_framework.decorators import api_view
 def api_detail(request):
     emp=Employee.objects.all()
 
-    #print(emp)
-
     serializer=EmployeeSerializer(emp, many=True)
 
     return Response(serializer.data)
