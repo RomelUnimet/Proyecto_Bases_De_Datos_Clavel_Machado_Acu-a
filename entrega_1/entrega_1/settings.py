@@ -83,8 +83,10 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'elbo_degon',
         'USER':'root',
-        'PASSWORD': 'paprika011209',
+        # 'PASSWORD': 'paprika011209',
+        'PASSWORD': 'Coiverde1.',
         'HOST':'localhost',
+        
     }
 }
 
