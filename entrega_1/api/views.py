@@ -4,6 +4,8 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.http import JsonResponse
 from rest_framework.generics import ListAPIView, RetrieveAPIView
+from rest_framework import viewsets
+
 from .models import  (Employee,
                      Product,
                      ProductBatch,
@@ -51,115 +53,60 @@ from .serializers import  (EmployeeSerializer,
     ##return Response(serializer.data)
 
 
-class EmployeeListView(ListAPIView):
-    queryset=Employee.objects.all()
+class EmployeeView(viewsets.ModelViewSet):
     serializer_class=EmployeeSerializer
-class ProductListView(ListAPIView):
-    queryset=Product.objects.all()
+    queryset=Employee.objects.all()  
+class ProductView(viewsets.ModelViewSet):    
     serializer_class=ProductSerializer
-class ProductBatchListView(ListAPIView):
+    queryset=Product.objects.all()
+class ProductBatchView(viewsets.ModelViewSet):
     queryset=ProductBatch.objects.all()
     serializer_class=ProductBatchSerializer
-class CategoryListView(ListAPIView):
+class CategoryView(viewsets.ModelViewSet):
     queryset=Category.objects.all()
     serializer_class=CategorySerializer
-class CurrencyExchangeListView(ListAPIView):
+class CurrencyExchangeView(viewsets.ModelViewSet):
     queryset=CurrencyExchange.objects.all()
     serializer_class=CurrencyExchangeSerializer
-class BillListView(ListAPIView):
+class BillView(viewsets.ModelViewSet):
     queryset=Bill.objects.all()
     serializer_class=BillSerializer
-class BillProductListView(ListAPIView):
+class BillProductView(viewsets.ModelViewSet):
     queryset=BillProduct.objects.all()
     serializer_class=BillProductSerializer
-class PaymentListView(ListAPIView):
+class PaymentView(viewsets.ModelViewSet):
     queryset=Payment.objects.all()
     serializer_class=PaymentSerializer
-class Payment_BillListView(ListAPIView):
+class Payment_BillView(viewsets.ModelViewSet):
     queryset=Payment_Bill.objects.all()
     serializer_class=Payment_BillSerializer
-class PickUpListView(ListAPIView):
+class PickUpView(viewsets.ModelViewSet):
     queryset=PickUp.objects.all()
     serializer_class=PickUpSerializer
-class LocalListView(ListAPIView):
+class LocalView(viewsets.ModelViewSet):
     queryset=Local.objects.all()
     serializer_class=LocalSerializer
-class DeliveryListView(ListAPIView):
+class DeliveryView(viewsets.ModelViewSet):
     queryset=Delivery.objects.all()
     serializer_class=DeliverySerializer
-class ClientListView(ListAPIView):
+class ClientView(viewsets.ModelViewSet):
     queryset=Client.objects.all()
     serializer_class=ClientSerializer
-class ProviderListView(ListAPIView):
+class ProviderView(viewsets.ModelViewSet):
     queryset=Provider.objects.all()
     serializer_class=ProviderSerializer
-class MembershipListView(ListAPIView):
+class MembershipView(viewsets.ModelViewSet):
     queryset=Membership.objects.all()
     serializer_class=MembershipSerializer
-class MonthEmployeeListView(ListAPIView):
+class MonthEmployeeView(viewsets.ModelViewSet):
     queryset=MonthEmployee.objects.all()
     serializer_class=MonthEmployeeSerializer
-class ZoneListView(ListAPIView):
+class ZoneView(viewsets.ModelViewSet):
     queryset=Zone.objects.all()
     serializer_class=ZoneSerializer
 
 
 
-
-
-##Detail  Views
-
-class EmployeeDetailView(RetrieveAPIView):
-    queryset=Employee.objects.all()
-    serializer_class=EmployeeSerializer
-class ProductDetailView(RetrieveAPIView):
-    queryset=Product.objects.all()
-    serializer_class=ProductSerializer
-class ProductBatchDetailView(RetrieveAPIView):
-    queryset=ProductBatch.objects.all()
-    serializer_class=ProductBatchSerializer
-class CategoryDetailView(RetrieveAPIView):
-    queryset=Category.objects.all()
-    serializer_class=CategorySerializer
-class CurrencyExchangeDetailView(RetrieveAPIView):
-    queryset=CurrencyExchange.objects.all()
-    serializer_class=CurrencyExchangeSerializer
-class BillDetailView(RetrieveAPIView):
-    queryset=Bill.objects.all()
-    serializer_class=BillSerializer
-class BillProductDetailView(RetrieveAPIView):
-    queryset=BillProduct.objects.all()
-    serializer_class=BillProductSerializer
-class PaymentDetailView(RetrieveAPIView):
-    queryset=Payment.objects.all()
-    serializer_class=PaymentSerializer
-class Payment_BillDetailView(RetrieveAPIView):
-    queryset=Payment_Bill.objects.all()
-    serializer_class=Payment_BillSerializer
-class PickUpDetailView(RetrieveAPIView):
-    queryset=PickUp.objects.all()
-    serializer_class=PickUpSerializer
-class LocalDetailView(RetrieveAPIView):
-    queryset=Local.objects.all()
-    serializer_class=LocalSerializer
-class DeliveryDetailView(RetrieveAPIView):
-    queryset=Delivery.objects.all()
-    serializer_class=DeliverySerializer
-class ClientDetailView(RetrieveAPIView):
-    queryset=Client.objects.all()
-    serializer_class=ClientSerializer
-class ProviderDetailView(RetrieveAPIView):
-    queryset=Provider.objects.all()
-    serializer_class=ProviderSerializer
-class MembershipDetailView(RetrieveAPIView):
-    queryset=Membership.objects.all()
-    serializer_class=MembershipSerializer
-class MonthEmployeeDetailView(RetrieveAPIView):
-    queryset=MonthEmployee.objects.all()
-    serializer_class=MonthEmployeeSerializer
-class ZoneDetailView(RetrieveAPIView):
-    queryset=Zone.objects.all()
-    serializer_class=ZoneSerializer
 
 
 
