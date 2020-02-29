@@ -20,14 +20,15 @@ class ProviderDetail extends React.Component{
 
     render(){
         return (
-
-            <Card title={this.state.provider.name + " (" + this.state.provider.id + ")"}>
-                <p>Telefono principal: {this.state.provider.main_phone}</p>
-                <p>Otro telefono: {this.state.provider.phone}</p>
-                <p>Direccion: {this.state.provider.address}</p>
-                <p>E-mail: {this.state.provider.email}</p>
-            </Card>
-            
+            <>
+                <h2>Proveedor:</h2>
+                <Card title={this.state.provider.name + " (" + this.state.provider.id + ")"}>
+                    <p>Telefono principal: {this.state.provider.main_phone}</p>
+                    <p>Otro telefono: {this.state.provider.phone}</p>
+                    <p>Direccion: {this.state.provider.address}</p>
+                    <p>E-mail: {this.state.provider.email}</p>
+                </Card>
+            </>
 
         )
     }

@@ -10,6 +10,7 @@ const Providers = (props) => {
             pageStart={0}
             useWindow={false}
           >
+            <h2>Proveedores:</h2>
             <List
               dataSource={props.data}
               renderItem={item => (

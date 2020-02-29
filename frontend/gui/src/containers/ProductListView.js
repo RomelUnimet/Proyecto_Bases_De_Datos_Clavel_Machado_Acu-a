@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Productss from '../components/products';
+import PForm from '../components/productForm';
 
 class ProductList extends React.Component{
 
@@ -17,11 +18,17 @@ class ProductList extends React.Component{
     }
 
 
+
     render(){
         return (
-
-            <Productss data ={this.state.products}/>
-
+            <>
+                <Productss data ={this.state.products}/>
+                <br/>
+                <h2>
+                    Crear un producto
+                </h2>
+                <PForm requestType="post" productID={null} buttonText="Crear"/>
+            </>
         )
     }
 }
