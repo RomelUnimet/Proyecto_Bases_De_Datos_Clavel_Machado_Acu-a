@@ -210,6 +210,7 @@ class Membership(models.Model):
     email=models.EmailField()
     client= models.ForeignKey('Client', on_delete=models.CASCADE)
     date_registered=models.DateField()
+    password=models.CharField(max_length=20, null=True)
     # atributo de si se toma en cuenta en la base de datos
     availible=models.BooleanField(default=True)
 
@@ -268,5 +269,9 @@ class Zone(models.Model):
     cost=models.FloatField()
     # atributo de si se toma en cuenta en la base de datos
     availible=models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.name
+    
 
 #-----------------------------------------------------------------------------

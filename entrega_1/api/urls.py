@@ -14,7 +14,10 @@ from .views import (EmployeeView,
                     ProviderView,
                     MembershipView,
                     MonthEmployeeView,
-                    ZoneView
+                    ZoneView,
+                    Product_Category,
+                    #get_data,
+                    
                     
                     )
 from django.urls import path
@@ -38,6 +41,9 @@ router.register(r'prov',ProviderView,basename='provider')
 router.register(r'mem',MembershipView,basename='membership')
 router.register(r'memp',MonthEmployeeView,basename='mobthemployee')
 router.register(r'zone',ZoneView,basename='zone')
+router.register(r'j',Product_Category,basename='pc')
+#router.register(r'x',get_data,basename='jaja')
+
 urlpatterns = router.urls
 
 

@@ -5,6 +5,10 @@ from rest_framework.decorators import api_view
 from django.http import JsonResponse
 from rest_framework.generics import ListAPIView, RetrieveAPIView
 from rest_framework import viewsets
+from rest_framework.filters import SearchFilter
+from django.views.generic import View
+from django.db.models import Sum, Count
+
 
 from .models import  (Employee,
                      Product,
@@ -54,8 +58,22 @@ from .serializers import  (EmployeeSerializer,
 
 
 class EmployeeView(viewsets.ModelViewSet):
+
     serializer_class=EmployeeSerializer
+    
+
+    #No se si aqui se puede poner cualquier tipo de query y la vista se encarga de hacerla
+    #No se si se pueden hacer queries antes y despues se lo igualamos a query set
     queryset=Employee.objects.all()  
+    #Podemos crear objetos con objects.create antes de hacer el queryset??
+    #Abajo se pueden poner funciones y como accedemos a ellas si solo usamos un view??
+
+
+
+
+
+
+
 class ProductView(viewsets.ModelViewSet):    
     serializer_class=ProductSerializer
     queryset=Product.objects.all()
@@ -108,16 +126,72 @@ class ZoneView(viewsets.ModelViewSet):
 
 
 
+#views de querys
+class Product_Category(viewsets.ModelViewSet):
+    
+#     ##Category.objects.create(name="Algo") 
+    
+    serializer_class=ProductBatchSerializer
+    filter_backends=[SearchFilter]
+    search_fields=['elaboration_date']
+
+    ##para esto s epone el q del video que viste
+    def get_queryset(request, *args, **kwargs):
+
+        queryset=ProductBatch.objects.all()
+
+        return queryset
 
 
 
+def get_data(request):
 
-                    
-                    
-                   
-                
-                   
-                  
+    algo={}
+    lista = []
+
+    q=Product.objects.values("product_name", "id", "category__name",'hall')
+
+    #te retorna algo como el json que vas a utilizar el primer campo suele ser el id y los otros dependen de el
+    for l in q:
+
+        #algo.append(l[{'id', 'product_name', 'category__name'} ])
+        algo.update({l["id"]:{
+            "product_name":l["product_name"],
+            "category_name":l["category__name"],
+            'hall':l['hall']
+
+        }})
+
+        #esto sustituye el valor
+        #algo.update({l["id"]:l[ "category__name" ]})
+    
+
+    print("-----------------------------------------------------------------------------------------------------------------")
+    print(algo)
+
+    
+    
+    return JsonResponse(algo)
 
 
 
+def data_2(request):
+
+    l=[]
+    s=[]
+
+    q=Product.objects.values('category__name').annotate(j=Count('category'))[0:5]
+
+
+    for x in q:
+        l.append(x['category__name'])
+        s.append(x['j'])
+
+    data={
+
+        'CatName':l,
+        'Cant':s
+
+    }
+
+    return JsonResponse(data)

@@ -35,6 +35,8 @@ admin.site.register(Provider)
 admin.site.register(Membership)
 admin.site.register(MonthEmployee)
 admin.site.register(Zone)
+admin.site.register(Payment)
+admin.site.register(Payment_Bill)
 
 
 
