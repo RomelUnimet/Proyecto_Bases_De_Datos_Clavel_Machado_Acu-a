@@ -1,8 +1,8 @@
 import React from 'react';
-import { List } from 'antd';
+import { List} from 'antd';
 import InfiniteScroll from 'react-infinite-scroller';
 
-const Productss = (props) => {
+const Providers = (props) => {
     return (
         <div className="demo-infinite-container">
           <InfiniteScroll
@@ -15,7 +15,7 @@ const Productss = (props) => {
               renderItem={item => (
                 <List.Item key={item.id}>
                   <List.Item.Meta
-                    title={<a href={`prod/${item.id}`}>{item.product_name}</a>}
+                    title={<a href={`prov/${item.id}`}>{item.name}</a>}
                   />
                 </List.Item>
               )}
@@ -28,4 +28,4 @@ const Productss = (props) => {
 
 
 
-export default Productss;
+export default Providers;

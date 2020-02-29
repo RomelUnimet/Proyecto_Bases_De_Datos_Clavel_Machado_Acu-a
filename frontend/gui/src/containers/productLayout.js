@@ -12,11 +12,11 @@ const ProductLayout = (props) =>{
           <Menu
             theme="dark"
             mode="horizontal"
-            defaultSelectedKeys={['2']}
+            defaultSelectedKeys={[]}
             style={{ lineHeight: '64px' }}
           >
-            <Menu.Item key="1">nav 1</Menu.Item>
-            <Menu.Item key="2">Productos</Menu.Item>
+            <Menu.Item key="1"><Link to='/prov'>Proveedores</Link></Menu.Item>
+            <Menu.Item key="2"><Link to='/'>Productos</Link></Menu.Item>
             <Menu.Item key="3">nav 3</Menu.Item>
           </Menu>
         </Header>

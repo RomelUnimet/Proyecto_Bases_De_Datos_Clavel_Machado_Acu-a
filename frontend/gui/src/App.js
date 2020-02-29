@@ -9,9 +9,9 @@ function App() {
   return (
     <div className="App">
       <Router>
-      <ProductLayout>
-        <BaseRouter/>
-      </ProductLayout>
+         <ProductLayout>
+          <BaseRouter/>
+        </ProductLayout>
       </Router>
 
       
